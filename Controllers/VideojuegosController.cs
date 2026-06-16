@@ -2,14 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 // Organizamos y agrupamos nuestro código en un espacio de nombres (namespace) para mantenerlo ordenado
 namespace MiPrimeraApi.Controllers
 {
-    // 1. Abstracción: Definimos qué es un Videojuego para nuestro sistema
+    // 1. AbstrAction: Definimos qué es un Videojuego para nuestro sistema
     public class Videojuego 
     {
         // Al poner = string.Empty; le aseguramos a .NET que nunca seran null por defecto
         public int Id { get; set; }
         public string Titulo { get; set; } = string.Empty;
         public string Genero { get; set; } = string.Empty;
-        // ESTADO -> COMPLETADO - PROCESO - PENDIENTE
+        // ESTADO -> Filled - process - pending
         public string Estado { get; set; }  = string.Empty;
         // URL IMG PORTADA
         public string Imagen { get; set; } = string.Empty;
@@ -28,11 +28,11 @@ namespace MiPrimeraApi.Controllers
         // Simulamos una base de datos en memoria (una lista)
         private static List<Videojuego> _misJuegos = new List<Videojuego>
         {
-            new Videojuego { Id = 1, Titulo = "Hollow Knight", Genero = "Metroidvania", Estado = "Completado", Imagen = "https://i.namu.wiki/i/7u-TfLK_jeVwBwb5SozyAdgNv_2KuPgsjTKtbFsvLLoztdjaIBrG67RmxtzJzZo1PgnCf4kGIdY4QMhVww7Q1A.webp", Consola = "PC", Ranking = 100, Descripcion = "I gave up the game, two years ago I played it again and I fell in love with it" },
-            new Videojuego { Id = 2, Titulo = "Assassin's Creed Valhalla", Genero = "Acción / RPG", Estado = "Proceso", Imagen = "https://m.media-amazon.com/images/I/81PYKLkWWLL._AC_UF1000,1000_QL80_.jpg", Consola = "PC", Ranking = 70, Descripcion = "I'm currently playining this game, I like it a lot but It's extremely extensive." },
-            new Videojuego { Id = 3, Titulo = "HOGWARTS LEGACY", Genero = "Fantasia / RPG", Estado = "Completado", Imagen = "https://image.api.playstation.com/vulcan/ap/rnd/202503/2716/f6b1e4512ee6061913f7d604da8f5f39566be56ca32a68ee.png", Consola = "PC", Ranking = 80, Descripcion = "It's extremely extensive however, It is based on my favorite book saga = 'Harry Potter'" },
-            new Videojuego { Id = 2, Titulo = "Silksong", Genero = "Acción / RPG", Estado = "Completado", Imagen = "https://m.media-amazon.com/images/M/MV5BMjA4NWE1YWMtNjQ4ZC00Y2Q3LWFjMGEtNGVhM2FmYzJjMzM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", Consola = "PC", Ranking = 100, Descripcion = "Silksong is my favorite game, I completed it all with more than 100 hours played and enjoyed." },
-            new Videojuego { Id = 2, Titulo = "DOOM", Genero = "FPS", Estado = "Completado", Imagen = "https://m.media-amazon.com/images/M/MV5BOWEwNThjODUtYTkyZS00MmNmLTk1Y2EtOGU1YTg0NmNmNjYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", Consola = "PC", Ranking = 70, Descripcion = "It's pretty interesting because I almost never play video games of this style" }
+            new Videojuego { Id = 1, Titulo = "Hollow Knight", Genero = "Metroidvania", Estado = "Filled", Imagen = "https://i.namu.wiki/i/7u-TfLK_jeVwBwb5SozyAdgNv_2KuPgsjTKtbFsvLLoztdjaIBrG67RmxtzJzZo1PgnCf4kGIdY4QMhVww7Q1A.webp", Consola = "PC", Ranking = 100, Descripcion = "I gave up the game, two years ago I played it again and I fell in love with it" },
+            new Videojuego { Id = 2, Titulo = "Assassin's Creed Valhalla", Genero = "Action / RPG", Estado = "process", Imagen = "https://m.media-amazon.com/images/I/81PYKLkWWLL._AC_UF1000,1000_QL80_.jpg", Consola = "PC", Ranking = 70, Descripcion = "I'm currently playining this game, I like it a lot but It's extremely extensive." },
+            new Videojuego { Id = 3, Titulo = "HOGWARTS LEGACY", Genero = "Fantasy / RPG", Estado = "Filled", Imagen = "https://image.api.playstation.com/vulcan/ap/rnd/202503/2716/f6b1e4512ee6061913f7d604da8f5f39566be56ca32a68ee.png", Consola = "PC", Ranking = 80, Descripcion = "It's extremely extensive however, It is based on my favorite book saga = 'Harry Potter'" },
+            new Videojuego { Id = 2, Titulo = "Silksong", Genero = "Action / RPG", Estado = "Filled", Imagen = "https://m.media-amazon.com/images/M/MV5BMjA4NWE1YWMtNjQ4ZC00Y2Q3LWFjMGEtNGVhM2FmYzJjMzM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", Consola = "PC", Ranking = 100, Descripcion = "Silksong is my favorite game, I completed it all with more than 100 hours played and enjoyed." },
+            new Videojuego { Id = 2, Titulo = "DOOM", Genero = "FPS", Estado = "Filled", Imagen = "https://m.media-amazon.com/images/M/MV5BOWEwNThjODUtYTkyZS00MmNmLTk1Y2EtOGU1YTg0NmNmNjYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", Consola = "PC", Ranking = 70, Descripcion = "It's pretty interesting because I almost never play video games of this style" }
         };
 
         // 1. OBTENER TODOS (GET: api/videojuegos)
